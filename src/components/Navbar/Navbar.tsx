@@ -7,7 +7,7 @@ import NavIcons from './NavIcons'
 
 const Navbar = () => {
     return (
-        <div className='h-20 px-4 relative'>
+        <div className='h-20 px-4 fixed w-full bg-base bg-opacity-40 z-[999]'>
             {/* MOBILE */}
             <div className='h-full flex items-center justify-between md:hidden'>
                 <Link href='/'>

@@ -20,13 +20,13 @@ const SearchBar = () => {
 
     return (
         <form 
-        className='flex ic justify-between gap-4 bg-secondary p-2 rounded-md flex-1'
+        className='flex ic justify-between gap-4 bg-secondary bg-opacity-40 p-2 rounded-md flex-1'
         onSubmit={handleSearch}>
             <input
                 type='text' 
                 name='name'
                 placeholder='Search' 
-                className='flex-1 bg-transparent outline-none text-black' />
+                className='flex-1 bg-transparent outline-none text-white' />
             <button className='cursor-pointer'>
                 <Image src='./icons/magnify.svg' alt='' width={16} height={16} />
             </button>
