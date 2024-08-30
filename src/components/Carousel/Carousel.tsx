@@ -34,7 +34,6 @@ const Carousel = () => {
     const [current, setCurrent] = useState(0)
 
     return (
-
         <div className="carousel w-full h-[100vh]">
             {slides.map((slide) => (
                 <div key={`slide${slide.id}`} id={`slide${slide.id}`} className="carousel-item w-full">
@@ -44,11 +43,16 @@ const Carousel = () => {
                         className="w-full h-[100vh] object-cover" />
                 </div>
             ))}
-            <div className='absolute m-auto h-full justify-center left-4 md:left-8 flex flex-col gap-4 z-[5]'>
+            {slides.length > 1 && (<div className='absolute m-auto h-full justify-center left-4 md:left-8 flex flex-col gap-4 z-[5]'>
                 {slides.map((slide) => (
-                    <a key={`pagination${slide.id}`} href={`#slide${slide.id}`} className="btn btn-sm">{slide.id + 1}</a>
+                    <a
+                        key={`pagination${slide.id}`}
+                        href={`#slide${slide.id}`}
+                        className={`btn btn-sm ${current === slide.id ? 'bg-accent outline-none text-base' : ''}`}
+                        onClick={() => setCurrent(slide.id)}>{slide.id + 1}
+                    </a>
                 ))}
-            </div>
+            </div>)}
         </div>
     )
 }
