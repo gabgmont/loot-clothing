@@ -32,28 +32,44 @@ const slides = [
     },
 ]
 
-const Carousel = () => {
+const CarouselV2 = () => {
     const [current, setCurrent] = useState(0)
 
-    // useEffect(() => {
-    //     const interval = setInterval(() => {
-    //         setCurrent((prev) => (prev + 1) === slides.length ? 0 : prev + 1)
-    //         const carousel = document.getElementById('banner-carousel');
-    //         console.log(current)
-
-    //         if (carousel) {
-    //             const nextSlide = (current + 1) === slides.length ? 0 : current + 1
-    //             const target = document.querySelector<HTMLDivElement>(`#slide${nextSlide}`)!;
-    //             const left = target.offsetLeft;
-    //             carousel.scrollTo({ left: left });
-
-    //         }
-    //     }, 5000)
-    //     return () => clearInterval(interval)
-    // })
+    useEffect(() => {
+        const interval = setInterval(() => {
+            setCurrent((prev) => {
+                const a = (prev + 1) === slides.length ? 0 : prev + 1
+                console.log(a + "b")
+                return a
+            })
+            const carousel = document.getElementById('banner-carousel');
+            console.log(current)
+            if (carousel) {
+                const target = document.querySelector<HTMLDivElement>(`#slide${current}`)!;
+                const left = target.offsetLeft;
+                carousel.scrollTo({ left: left });
+            }
+        }, 3000)
+        return () => clearInterval(interval)
+    })
 
     return (
-        <div id='banner-carousel' className="carousel w-full h-[100vh]">
+        <ACarousel autoplay autoplaySpeed={2000} dotPosition="left" appendDots={dots => {
+            console.log(dots)
+            return (
+                <div>
+                    <ul style={{ margin: "0px" }}>
+                        {dots && Array.isArray(dots) && dots.map((dot) => (
+                            <li
+                                key={`pagination${dot.key}`}
+                                className={`p-4 ${dot.props.className == 'slick-active' ? 'bg-accent outline-none text-base' : ''}`}>
+                                    {dot.key + 1}
+                            </li>
+                        ))}
+                    </ul>
+                </div>
+            )
+        }}>
             {slides.map((slide) => (
                 <div key={`slide${slide.id}`} id={`slide${slide.id}`} className="carousel-item w-full">
                     <img
@@ -62,18 +78,8 @@ const Carousel = () => {
                         className="w-full h-[100vh] object-cover" />
                 </div>
             ))}
-            {slides.length > 1 && (<div className='absolute m-auto h-full justify-center left-4 md:left-8 flex flex-col gap-4 z-[5]'>
-                {slides.map((slide) => (
-                    <a
-                        key={`pagination${slide.id}`}
-                        href={`#slide${slide.id}`}
-                        className={`btn btn-sm ${current === slide.id ? 'bg-accent outline-none text-base' : ''}`}
-                        onClick={() => setCurrent(slide.id)}>{slide.id + 1}
-                    </a>
-                ))}
-            </div>)}
-        </div>
+        </ACarousel>
     )
 }
 
-export default Carousel
+export default CarouselV2
