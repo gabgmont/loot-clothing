@@ -1,9 +1,6 @@
 'use client';
 
 import React, { useEffect, useState } from 'react'
-import { Carousel as ACarousel } from 'antd';
-
-import CarouselItem from './CarouselItem'
 
 const slides = [
     {
@@ -35,22 +32,22 @@ const slides = [
 const Carousel = () => {
     const [current, setCurrent] = useState(0)
 
-    // useEffect(() => {
-    //     const interval = setInterval(() => {
-    //         setCurrent((prev) => (prev + 1) === slides.length ? 0 : prev + 1)
-    //         const carousel = document.getElementById('banner-carousel');
-    //         console.log(current)
+    useEffect(() => {
+        const interval = setInterval(() => {
+            setCurrent((prev) => (prev + 1) === slides.length ? 0 : prev + 1)
+            const carousel = document.getElementById('banner-carousel');
+            console.log(current)
 
-    //         if (carousel) {
-    //             const nextSlide = (current + 1) === slides.length ? 0 : current + 1
-    //             const target = document.querySelector<HTMLDivElement>(`#slide${nextSlide}`)!;
-    //             const left = target.offsetLeft;
-    //             carousel.scrollTo({ left: left });
+            if (carousel) {
+                const nextSlide = (current + 1) === slides.length ? 0 : current + 1
+                const target = document.querySelector<HTMLDivElement>(`#slide${nextSlide}`)!;
+                const left = target.offsetLeft;
+                carousel.scrollTo({ left: left });
 
-    //         }
-    //     }, 5000)
-    //     return () => clearInterval(interval)
-    // })
+            }
+        }, 5000)
+        return () => clearInterval(interval)
+    })
 
     return (
         <div id='banner-carousel' className="carousel w-full h-[100vh]">
