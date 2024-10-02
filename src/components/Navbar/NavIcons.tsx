@@ -37,7 +37,7 @@ const NavIcons = () => {
                     width={24}
                     height={24}
                     onClick={handleBagOpen} />
-                <div className='absolute -top-2 -right-2 w-4 h-4 bg-accent rounded-full text-black text-xs flex items-center justify-center'>1</div>
+                <div className='absolute -top-2 -right-2 w-4 h-4 bg-accent rounded-full text-white text-xs flex items-center justify-center'>1</div>
             </div>{
                 isBagOpen && (
                     <BagModal/>
