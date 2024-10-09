@@ -64,7 +64,7 @@ const Carousel = () => {
                     <a
                         key={`pagination${slide.id}`}
                         href={`#slide${slide.id}`}
-                        className={`btn btn-sm ${current === slide.id ? 'bg-accent outline-none text-base' : ''}`}
+                        className={`btn btn-sm ${current === slide.id ? 'bg-accent outline-none text-white hover:bg-neutral' : ''}`}
                         onClick={() => setCurrent(slide.id)}>{slide.id + 1}
                     </a>
                 ))}

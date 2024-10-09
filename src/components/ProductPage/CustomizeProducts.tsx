@@ -9,7 +9,13 @@ const CustomizeProducts = () => {
                 <div className='w-8 h-8 mt-1 ml-1 rounded-full ring-1 ring-neutral cursor-pointer relative bg-black'/>
             </li>
             <li className='w-10 h-10 rounded-full'>
-                <div className='w-8 h-8 mt-1 ml-1 rounded-full ring-1 ring-neutral cursor-pointer relative bg-white'/>
+                <div className='w-8 h-8 mt-1 ml-1 flex flex-row items-center rounded-full ring-1 ring-neutral cursor-pointer relative bg-white'>
+                </div>
+            </li>
+            <li className='w-10 h-10 rounded-full'>
+                <div className='w-8 h-8 mt-1 ml-1 flex flex-row items-center rounded-full ring-1 ring-neutral cursor-not-allowed relative bg-blue-600 bg-opacity-40'>
+                    <div className='w-8 h-[2px] bg-red-500 opacity-1 rotate-45'></div>
+                </div>
             </li>
         </ul>
         <h4 className='font-medium'>Tamanho</h4>

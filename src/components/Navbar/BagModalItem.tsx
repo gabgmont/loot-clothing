@@ -19,7 +19,7 @@ const BagModalItem = () => {
                         <div className=''>$49</div>
                     </div>
                     {/* DESC */}
-                    <div className='text-sm pl-1 pr-1 w-max bg-accent rounded-sm text-black'>
+                    <div className='text-sm pl-1 pr-1 w-max bg-accent rounded-sm text-white'>
                         available
                     </div>
                 </div>
