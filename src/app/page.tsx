@@ -39,7 +39,9 @@ const Home = async () => {
       </div>
       <div className='mt-16'>
         <h1 className='text-2xl px-8 mb-8 font-bold'>Categories</h1>
-        <CategoryList/>
+        <Suspense fallback={'loading'}>
+          <CategoryList/>
+        </Suspense>
       </div>
       <div className='mt-16 px-8'>
         <h1 className='text-2xl font-bold'>New Products</h1>

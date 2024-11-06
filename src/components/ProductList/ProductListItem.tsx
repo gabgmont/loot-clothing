@@ -43,8 +43,8 @@ const ProductListItem = ({
         )}
       </div>
       <div className="flex justify-between">
-        <span className="font-medium">{name}</span>
-        <span className="font-semibold">{price}</span>
+        <span className="w-3/5 font-medium">{name}</span>
+        <span className="w-2/5 font-semibold">{price}</span>
       </div>
       <div className="text-sm text-neutral">{description}</div>
       <button className="rounded-2xl ring-1 ring-accent text-lama w-max py-2 px-4 text-xs hover:bg-accent">
